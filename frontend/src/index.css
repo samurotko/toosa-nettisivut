@@ -1,0 +1,203 @@
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@font-face {
+  font-family: 'Fontit';
+  src: url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=IBM+Plex+Sans+Devanagari:wght@100;200;300;400&display=swap');
+}
+
+.Siivu {
+
+display: flex;
+flex-direction: column;
+
+align-items: center;
+justify-content: space-evenly;
+
+width: 60%;
+
+margin: 0;
+padding-top: 60px;
+padding-bottom: 60px;
+padding-left: 20%;
+padding-right: 20%;
+
+}
+/*box-shadow: 0px -10px 15px rgba(0, 0, 0, .1) inset
+
+^varjo siivuille
+*/
+
+
+#BA {
+  background-color: #C26B5B;
+  flex-direction: column;
+
+}
+
+#VV {
+  background-color: #97CED8;
+  flex-direction: row-reverse;
+
+}
+
+#SP {
+  background-color: white;
+  flex-direction: column;
+
+}
+
+#VJ {
+  background-color: #F1C37E ;
+}
+
+#IL {
+  background-color: #C26B5B;
+}
+
+#logo {
+  -webkit-filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, .44));
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, .4));
+  padding: 30px;
+}
+
+#logoink {
+  -webkit-filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, .44));
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, .4));
+  padding: 30px;
+}
+
+#logoiv {
+  padding: 40px;
+
+}
+
+#logoframe {
+  display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 40px;
+}
+
+#tapahtumalista {
+  font-size: 30px;
+    color: #1C3439;
+    display:flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    width: 400px;
+}
+
+/* Tekstit */
+
+h1 {
+  font-size:140px;
+  font-family: 'East Sea Dokdo', cursive;
+  font-weight: 500;
+  text-align: center;
+  padding-bottom: 35px;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  margin: 0px;
+}
+
+h2 {
+  font-size: 80px;
+  font-family: 'East Sea Dokdo', cursive;
+  font-weight: 400;
+  color: white;
+  padding: 0px;
+  margin: 0px;
+}
+
+p {
+  font-size: 24px;
+  font-family: 'IBM Plex Sans Devanagari', sans-serif;
+  font-weight: 350;
+  padding-bottom: 25px;
+}
+.vjt {
+  color: #1C3439;
+}
+
+.vvt {
+  color: #1C3439;
+}
+
+#tapahtumalinkki {
+    font-size: 25px;
+    text-decoration: none;
+    font-family: 'IBM Plex Sans Devanagari', sans-serif;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px #3E737D;
+}
+
+/*Padi adjust*/
+@media only screen and (max-width: 900px) {
+  
+  #VV {
+    flex-direction: column;
+  
+  }
+  
+  #logoframe {
+    flex-direction: column;
+  }
+
+
+
+}
+
+/*Puhelin adjust*/
+@media only screen and (max-width: 450px) {
+  
+  #VV {
+    flex-direction: column;
+  
+  }
+  
+  #logoframe {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size:80px;
+
+  }
+
+  h2{
+    font-size:50px;
+
+  }
+  
+  p {
+    font-size: 18px;
+    padding-bottom: 0px;
+  }
+
+  #tapahtumalinkki {
+    font-size: 20px;
+  }
+
+  #tapahtumalista {
+    width: 300px;
+  }
+  
+  #logoink {
+    height: 69px;
+  }
+}
