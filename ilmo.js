@@ -37,6 +37,7 @@ ilmoRouter.post('/', async (request, response) => {
         OttaakoSukat: body.Sukat.OttaakoSukat, 
         Koko: body.Sukat.Koko
       },
+      timestamp: Date.now(),
 
     })
     console.log("posting ilmo",ilmo)

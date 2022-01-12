@@ -19,16 +19,19 @@ const Vuosijuhla = () => {
 
     return ( <> 
                 <ContentBox>
-                <VujuviikkoHead>
+                    <VujuviikkoHead>
                         <h2>
-                            Vuosijuhlaviikko
+                            Vuosijuhla
                         </h2>
-                        </VujuviikkoHead>
+                    </VujuviikkoHead>
                     <p class = "vjt"> 
-                        Vuosijuhla on killan tapahtumista hienoin ja juhlallisin. Inkubion 18. vuosijuhlia vietetään lauantaina 5.3.2022 ja juhlintaa jatketaan silliaamiaisella sunnuntaina 6.3.2022. Juhlat alkavat cocktailtilaisuudella *paikassa* osoitteessa *osoite*. Tarjoilujen ja lahjanannon jälkeen siirrytään cocktailtilaisuudesta kuljetuksella pääjuhlapaikalle.
+                        Vuosijuhla on killan tapahtumista hienoin ja juhlallisin. Inkubion 18. vuosijuhlia vietetään lauantaina 5.3.2022 ja juhlintaa jatketaan silliaamiaisella sunnuntaina 6.3.2022.
                     </p>
                     <p class = "vjt">
-                        Pääjuhlaa vietetään *missä* osoitteessa *osoite*. Pääjuhlan jälkeen ilta jatkuu kuljetuksen vieden juhlavieraat jatkopaikkaan X. Seuraavana päivänä henkistä ja fyysistä hyvinvointia hellitään silliksellä paikassa Y.
+                        Juhlat alkavat cocktailtilaisuudella Aalto-yliopiston kandidaattikeskuksen yläaulassa (Otakaari 1, Espoo), jonka jälkeen siirrytään cocktailtilaisuudesta kuljetuksella pääjuhlapaikalle Tommi’s Kitchen & Cateringiin (Upseerinkatu 1-3, Espoo). Pääjuhlan jälkeen ilta jatkuu kuljetuksen kyydittämänä jatkopaikassa X.  
+                    </p>
+                    <p class = "vjt">
+                        Seuraavana päivänä henkistä ja fyysistä hyvinvointia on mahdollista hellittää silliksellä paikassa Y.
                     </p>
                     <p class = "vjt">
                         Vuosijuhla on iltapukujuhla, jossa asuna on frakki tai tumma puku tai pitkä iltapuku. Lisäksi juhlapukuja koristavat akateemiset kunniamerkit.

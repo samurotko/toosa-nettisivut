@@ -7,7 +7,7 @@ const sukkaSchema = mongoose.Schema({
   },
   Koko: {
     type: String,
-    enum: ['36-39','40-43']
+    enum: ['','36-39','40-43']
   }
 })
 
@@ -48,6 +48,7 @@ const ilmoSchema = mongoose.Schema({
       required: true
     },
     Sukat: sukkaSchema,
+    timestamp: Date
   })
 
   ilmoSchema.set('toJSON', {

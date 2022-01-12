@@ -32,6 +32,11 @@ const ContentBox = styled.div`
 
 `;
 
+const IlmoHead = styled.div`
+    padding-bottom: 25px;
+    text-shadow: 4px 4px 8px #3E737D;
+`;
+
 const Ilmoittautuminen = () => {
 
     const [newEtunimi, setNewEtunimi] = useState('') 
@@ -70,7 +75,7 @@ const Ilmoittautuminen = () => {
             Avec: newAvec,
             Sukat: {OttaakoSukat: newSukat=== 'true' ? true : false, Koko: newKoko}
         }
-        console.log("sending ilmo",ilmo)
+        //console.log("sending ilmo",ilmo)
         
         dispatch(createNew(ilmo))
         
@@ -88,8 +93,9 @@ const Ilmoittautuminen = () => {
         setNewSukat('false')
         setNewKoko('')
 
-        console.log("forms emptied")
-        dispatch(notification('green', `Ilmoittautuminen onnistui!` ,5))
+        //console.log("forms emptied")
+        //alert(`Ilmoittautuminen onnistui!`)
+        //dispatch(notification('green', `Ilmoittautuminen onnistui!` ,5))
            // setTimeout(() => {
             // props.setNotification(null)
            // }, 5000)
@@ -99,62 +105,62 @@ const Ilmoittautuminen = () => {
 
 
     const handleEtunimi = (event) => {
-        console.log('handleEtunimi',event.target.value)
+        //console.log('handleEtunimi',event.target.value)
         setNewEtunimi(event.target.value)
     }
 
     const handleSukunimi = (event) => {
-        console.log('handleSukunimi',event.target.value)
+        //console.log('handleSukunimi',event.target.value)
         setNewSukunimi(event.target.value)
     }
 
     const handleSähköposti = (event) => {
-        console.log('handleSähköposti',event.target.value)
+        //console.log('handleSähköposti',event.target.value)
         setNewSähköposti(event.target.value)
     }
 
     const handleKilta = (event) => {
-        console.log('handleKilta',event.target.value)
+        //console.log('handleKilta',event.target.value)
         setNewKilta(event.target.value)
     }
 
     const handleAllergia = (event) => {
-        console.log('handleAllergiat',event.target.value)
+        //console.log('handleAllergiat',event.target.value)
         setNewAllergia(event.target.value)
     }
 
     const handlePöytäseurue = (event) => {
-        console.log('handlePöytäseurue',event.target.value)
+        //console.log('handlePöytäseurue',event.target.value)
         setNewPöytäseurue(event.target.value)
     }
 
     const handleAvec = (event) => {
-        console.log('handleAvec',event.target.value)
+        //console.log('handleAvec',event.target.value)
         setNewAvec(event.target.value)
     }
 
     const handleLahja = (event) => {
-        console.log('handleLahja',event.target.value)
+        //console.log('handleLahja',event.target.value)
         setNewLahja(event.target.value)
     }
 
     const handleSillis = (event) => {
-        console.log('handleSillis',event.target.value)
+        //console.log('handleSillis',event.target.value)
         setNewSillis(event.target.value)
     }
 
     const handleKiintiö = (event) => {
-        console.log('handleKiintiö',event.target.value)
+        //console.log('handleKiintiö',event.target.value)
         setNewKiintiö(event.target.value)
     }
 
     const handleHoli = (event) => {
-        console.log('handleHoli',event.target.value)
+        //console.log('handleHoli',event.target.value)
         setNewHoli(event.target.value)
     }
 
     const handleSukat = (event) => {
-        console.log('handleSukat',event.target.value)
+        //console.log('handleSukat',event.target.value)
         setNewSukat(event.target.value)
         if(event.target.value === 'true'){
             setKokoVisible(true)
@@ -164,7 +170,7 @@ const Ilmoittautuminen = () => {
     }
 
     const handleKoko = (event) => {
-        console.log('handleKoko',event.target.value)
+        //console.log('handleKoko',event.target.value)
         setNewKoko(event.target.value)
         
     }
@@ -174,8 +180,9 @@ const Ilmoittautuminen = () => {
 
     return ( <> 
         <ContentBox>
-        <h3>ILMOITTAUTUMINEN</h3>
-        
+            <IlmoHead>
+            <h2>Ilmoittautuminen</h2>
+            </IlmoHead>
         <form onSubmit={addIlmo}>
         <div>
         <FormGroup>

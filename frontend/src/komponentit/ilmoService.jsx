@@ -1,17 +1,25 @@
 import axios from 'axios'
 
 const mongoose = require('mongoose')
-const baseUrl = "http://localhost:5000/api/ilmos"
-
+const baseUrl = process.env.REACT_APP_BASE_URL
+//process.env.BASE_URL
+//"http://localhost:5000/api/ilmos"
+//const baseUrl = "inkubio.fi/apoptoosi" 
 
 
 const create = async (newObject) => {
     //write to file or db
-    
-    console.log("posting")
+    //console.log("baseURI",baseUrl)
+    //console.log("posting")
+    try {
     const response = await axios.post(baseUrl, newObject)
-    console.log(response)
+    //console.log(response)
+    alert(`Ilmoittautuminen onnistui!`)
     return response.data
+    } catch (error) {
+        alert("ilmoittauminen epäonnistui: " + error)
+    }
+    
  
 }
 

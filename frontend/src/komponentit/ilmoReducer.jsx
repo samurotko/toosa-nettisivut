@@ -3,7 +3,7 @@ import ilmoService from './ilmoService'
 
 export const createNew = (ilmo) => {
   return async dispatch => {
-      console.log("creating new ilmo")
+      //console.log("creating new ilmo")
     const newIlmo = await ilmoService.create(ilmo)
     dispatch({
       type: 'NEW_ILMO',
@@ -19,7 +19,7 @@ export const createNew = (ilmo) => {
 export const initializeilmos = () => {
   
   return async dispatch => {
-      console.log('initalizeilmos')
+      //console.log('initalizeilmos')
     const allIlmos = await ilmoService.getAll()
     dispatch({
       type: 'INIT_ILMOS',
@@ -33,19 +33,19 @@ export const initializeilmos = () => {
 //const initialState = anecdotesAtStart.map(asObject)
 
 const ilmoReducer = (state = [], action) => {
-  console.log('state now: ', state)
-  console.log('action', action)
+  //console.log('state now: ', state)
+  //console.log('action', action)
 
   switch(action.type){
 
     case 'NEW_ILMO':
-      console.log('case new, state is',state)
-      console.log('action.data is',action.data)
+      //console.log('case new, state is',state)
+      //console.log('action.data is',action.data)
       return [...state, action.data]
 
 
     case 'INIT_ILMOS': {
-      console.log('initing',action.data)
+      //console.log('initing',action.data)
       return action.data
     }
     

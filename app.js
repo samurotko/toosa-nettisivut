@@ -3,9 +3,10 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 require('express-async-errors')
 //const middlewares  = require('./middlewares');
+const config = require('./config')
 const blogsRouter = require('./ilmo')
 
-const mongoUrl = "mongodb+srv://toosa:kCZ3epQ7e2LCPP6K@cluster0.caj3y.mongodb.net/ilmo?retryWrites=true&w=majority"
+const mongoUrl = config.MONGO_URL
 console.log('connecting to', mongoUrl, typeof mongoUrl)
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(result => {

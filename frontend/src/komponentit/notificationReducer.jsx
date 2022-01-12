@@ -2,7 +2,7 @@ const initialState = { color: '', message: '', time: 5 }
 
 
 export const notification = (color, message, time) => {
-  console.log('calling notification')
+  //console.log('calling notification')
   return dispatch => {
     
     // clearTimeout(timer);
@@ -24,14 +24,14 @@ export const deleteNotification = () => {
 }
 
 const notificationReducer = (state = initialState, action) => {
-    console.log('state now: ', state)
-    console.log('action', action)
+    //console.log('state now: ', state)
+    //console.log('action', action)
   
     switch(action.type){
   
         case 'NOTIFICATION':
-            console.log('case new, state is',state)
-            console.log('action.data is',action.data)
+            //console.log('case new, state is',state)
+            //console.log('action.data is',action.data)
             return action.data
 
         case 'DELETE_NOTIFICATION':
