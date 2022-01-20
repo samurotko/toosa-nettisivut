@@ -5,6 +5,7 @@ import Vujuvuosi from './komponentit/vujuviikko';
 import Vuosijuhla from './komponentit/vuosijuhla';
 import Ilmoittautuminen from './komponentit/ilmo';
 import Notification from './komponentit/notification'
+
 import "./index.css";
 
 
@@ -15,6 +16,7 @@ const App = () => {
     <>
     
     <div className = "Siivu" id = "BA" >
+
       <Banneri></Banneri>
       </div>
     <div className = "Siivu" id = "VV">

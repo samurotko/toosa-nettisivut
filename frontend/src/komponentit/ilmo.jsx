@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import {
   TextField,
   Button,
@@ -15,20 +15,18 @@ import {
 } from '@material-ui/core'
 
 
-import { notification } from './notificationReducer'
-import { createNew } from './ilmoReducer'
 
+import { notification } from './notificationReducer'
+import { createNew, initializeilmos } from './ilmoReducer'
+import getAll from './ilmoService'
 import styled from 'styled-components';
 import inkubio from './inkubio.png';
-
+import ProgressBar from './progressBar'
 
 const ContentBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 1000px;
-    height: 1000px;
-    padding: 100px;
 
 `;
 
@@ -36,6 +34,7 @@ const IlmoHead = styled.div`
     padding-bottom: 25px;
     text-shadow: 4px 4px 8px #3E737D;
 `;
+
 
 const Ilmoittautuminen = () => {
 
@@ -58,6 +57,15 @@ const Ilmoittautuminen = () => {
     const showWhenVisible = { display: kokoVisible ? '' : 'none' }
 
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        console.log('initializing')
+        dispatch(initializeilmos())
+      }, [dispatch])
+
+    const ilmos = useSelector(state => state.ilmo).length
+    console.log("ilmos",ilmos)
+
     const addIlmo = (event) => {
         event.preventDefault()
         
@@ -102,6 +110,8 @@ const Ilmoittautuminen = () => {
            
            
     }
+
+    
 
 
     const handleEtunimi = (event) => {
@@ -177,12 +187,204 @@ const Ilmoittautuminen = () => {
 
 
 
-
+    if(ilmos >=150){
+        return ( <> 
+            <ContentBox>
+                <IlmoHead>
+                <h2>Ilmoittautuminen</h2>
+                </IlmoHead>
+                
+                <p class = "vvt">
+                    Nykyisen pandemiatilanteen vuoksi saatamme joutua siirtämään vuosijuhlia. Mahdollisesta siirrosta tiedotetaan sähköpostitse. Annamme osallistujille mahdollisuuden peruuttaa osallistumisensa, mikäli vuosijuhlia siirretään.
+                </p>
+                <p class = "vvt">
+                    Ilmoittautumisesta ei tule erillistä vahvistusta sähköpostiin. Jos haluatte peruuttaa ilmoittautumisenne ottakaa yhteyttä vuosijuhlatoimikuntaan.
+                </p>
+            
+     
+          
+          <p class = "vvt">Ilmoittautuminen on täynnä, voit vielä ilmoittautua varasijoille</p>
+    
+          <ProgressBar  bgcolor={"#4a7077"} completed={ilmos} />
+            
+          <p class = "vvt">Ilmoittaudu:</p>
+            
+            <form onSubmit={addIlmo}>
+            <div>
+            <FormGroup>
+            <TextField label="Etunimi" value={newEtunimi} 
+                onChange={handleEtunimi}
+                required/>
+            </FormGroup>
+            </div>
+            <div>
+            <FormGroup>
+            <TextField label="Sukunimi" value={newSukunimi}
+                onChange={handleSukunimi}
+                required/>
+            </FormGroup>
+            </div>
+            <div >
+            <FormGroup>
+            <TextField label="Sähköposti" value={newSähköposti}
+                onChange={handleSähköposti}
+                required/>
+            </FormGroup>
+            </div>
+            <div>
+            <FormGroup>
+            <TextField label="Kilta/Edustamasi taho" value={newKilta}
+                onChange={handleKilta}/>
+            </FormGroup>
+            </div>
+            <div>
+            <FormLabel component="legend">Jätänkö lahjan</FormLabel>
+            <RadioGroup
+                row
+                aria-label="lahja"
+                name="lahja"
+                value={newLahja}
+                onChange={handleLahja}
+            >
+                <FormControlLabel value='true' control={<Radio color="default" size="small"/>} label="Kyllä" />
+                <FormControlLabel value='false' control={<Radio color="default" size="small"/>} label="Ei" />
+            </RadioGroup>
+            </div>
+            <div>
+            <FormGroup>
+            <TextField label="Erityisruokavaliot" value={newAllergia}
+                onChange={handleAllergia}/>
+            </FormGroup>
+            </div>
+            <div>
+            <FormGroup>
+            <TextField label="Pöytäseuruetoive" value={newPöytäseurue}
+                onChange={handlePöytäseurue}/>
+            </FormGroup>
+            </div>
+            <div>
+            <FormLabel component="legend">Sillis?</FormLabel>
+            <RadioGroup
+                row
+                aria-label="sillis"
+                name="sillis"
+                value={newSillis}
+                onChange={handleSillis}
+            >
+                <FormControlLabel value='true' control={<Radio color="default" size="small"/>} label="Kyllä" />
+                <FormControlLabel value='false' control={<Radio color="default" size="small"/>} label="Ei" />
+            </RadioGroup>
+            </div>
+            <div>
+            
+            <FormLabel>Kiintiö</FormLabel>
+            <FormGroup>
+            <Select
+                value={newKiintiö}
+                label="Kiintiö"
+                onChange={handleKiintiö}
+                required
+            >
+                <MenuItem value={"opiskelija"}>Opiskelija</MenuItem>
+                <MenuItem value={"alumni"}>Alumni</MenuItem>
+                <MenuItem value={"tukija"}>Tukija</MenuItem>
+            </Select>
+            </FormGroup>
+            </div>
+            <div>
+            
+            <FormLabel>Alkoholia?</FormLabel>
+            <FormGroup>
+            <Select
+                value={newHoli}
+                label="Holi"
+                onChange={handleHoli}
+                required
+            >
+                <MenuItem value={"holi"}>Holillinen</MenuItem>
+                <MenuItem value={"väh. holi"}>Ilman väkeviä</MenuItem>
+                <MenuItem value={"holiton"}>Alkoholiton</MenuItem>
+            </Select>
+            </FormGroup>
+            </div>
+            <div>
+            
+            <FormLabel>Avec</FormLabel>
+            <FormGroup>
+            <Select
+                value={newAvec}
+                label="Avec"
+                onChange={handleAvec}
+                required
+            >
+                <MenuItem value={"jallu"}>Jallu</MenuItem>
+                <MenuItem value={"punssi"}>Punssi</MenuItem>
+                <MenuItem value={"holiton"}>Alkoholiton</MenuItem>
+            </Select>
+            </FormGroup>
+            </div>
+            
+            <div>
+            
+            <FormLabel component="legend">Sukat?</FormLabel>
+            <i>Sukkia riittää 75:lle ensimmäiselle, hinta 7 euroa.</i>
+            <RadioGroup
+                row
+                aria-label="sukat"
+                name="sukat"
+                value={newSukat}
+                onChange={handleSukat}
+            >
+                <FormControlLabel value='true' control={<Radio color="default" size="small"/>} label="Kyllä" />
+                <FormControlLabel value='false' control={<Radio color="default" size="small"/>} label="Ei" />
+            </RadioGroup>
+            </div>
+            <div style={showWhenVisible}>
+            <FormLabel component="legend">Koko</FormLabel>
+            <RadioGroup
+                row
+                aria-label="koko"
+                name="koko"
+                value={newKoko}
+                onChange={handleKoko}
+            >
+                <FormControlLabel value='36-39' control={<Radio color="default" size="small"/>} label="36-39" />
+                <FormControlLabel value='40-43' control={<Radio color="default" size="small"/>} label="40-43" />
+            </RadioGroup>
+            </div>
+            <div>
+              <Button variant="contained" color="primary" type="submit">
+              ilmoittaudu
+              </Button>
+            </div>
+            </form>
+            </ContentBox>
+            <img id = "logoink"
+                src={inkubio}
+                alt="inkubio logo"
+                height = '100'  
+                />
+        </>)
+    }else{
     return ( <> 
         <ContentBox>
             <IlmoHead>
             <h2>Ilmoittautuminen</h2>
             </IlmoHead>
+            
+            <p class = "vvt">
+                Nykyisen pandemiatilanteen vuoksi saatamme joutua siirtämään vuosijuhlia. Mahdollisesta siirrosta tiedotetaan sähköpostitse. *Annamme osallistujille mahdollisuuden peruuttaa osallistumisensa, mikäli vuosijuhlia siirretään.
+            </p>
+            <p class = "vvt">
+                Ilmoittautumisesta ei tule erillistä vahvistusta sähköpostiin. Jos haluatte peruuttaa ilmoittautumisenne ottakaa yhteyttä vuosijuhlatoimikuntaan.
+            </p>
+
+            <p class = "vvt">Ilmoittautuneita:</p>
+    
+            <ProgressBar  bgcolor={"#4a7077"} completed={ilmos} />
+
+            <p class = "vvt">Ilmoittaudu:</p>
+        
         <form onSubmit={addIlmo}>
         <div>
         <FormGroup>
@@ -301,7 +503,7 @@ const Ilmoittautuminen = () => {
         <div>
         
         <FormLabel component="legend">Sukat?</FormLabel>
-        <i>Sukkia jaetaan 75:lle ensimmäiselle</i>
+        <i>Sukkia riittää 75:lle ensimmäiselle, hinta 7 euroa.</i>
         <RadioGroup
             row
             aria-label="sukat"
@@ -340,6 +542,7 @@ const Ilmoittautuminen = () => {
             />
     </>
     )
+    }
 };
 
 export default Ilmoittautuminen;

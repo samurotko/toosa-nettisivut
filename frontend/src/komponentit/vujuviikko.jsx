@@ -41,10 +41,10 @@ const Vujuvuosi = () => {
                 <ContentBox>
                     <div id = "tapahtumalista">
                         {VujuviikkoLinkki("https://www.inkubio.fi/ilmo/event/144", "Tapa- ja Tanssikoulutus", "2.3.2022\n")}
-                        {VujuviikkoLinkki("https://www.inkubio.fi/ilmo/event/145", "Krokejatkot", "3.3.2022\n")}
+                        {VujuviikkoLinkki("https://www.inkubio.fi/ilmo/event/145", "Krokettiturnaus", "3.3.2022\n")}
                         {VujuviikkoLinkki("https://www.inkubio.fi/ilmo/event/146", "Virpin läpilaulanta", "4.3.2022\n")}
                         {VujuviikkoLinkki("https://www.inkubio.fi/etusivu/", "Apoptoosi XVIII", "5.3.2022\n")}
-                        {VujuviikkoLinkki("https://www.inkubio.fi/ilmo/event/147", "Nekroosi", "5.3.2022\n")}
+                        {VujuviikkoLinkki("https://www.inkubio.fi/ilmo/event/147", "Nekroosi", "6.3.2022\n")}
                     </div>
                 </ContentBox>
             </>

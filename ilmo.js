@@ -5,7 +5,7 @@ const Ilmo = require('./ilmoSchema')
 
 
 ilmoRouter.get('/', async (request, response) => { 
-  const ilmos = await Ilmo.find({}).populate('user', {username: 1, name: 1})
+  const ilmos = await Ilmo.find({})
   response.json(ilmos.map(b => b.toJSON()))
 })
 

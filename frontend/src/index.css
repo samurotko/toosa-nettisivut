@@ -18,6 +18,15 @@ body::-webkit-scrollbar {
   src: url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=IBM+Plex+Sans+Devanagari:wght@100;200;300;400&display=swap');
 }
 
+form {
+  padding: 10px;
+
+}
+
+form div {
+  padding-bottom: 3px;
+}
+
 .Siivu {
 
 display: flex;

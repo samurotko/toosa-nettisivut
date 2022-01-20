@@ -6,6 +6,7 @@ require('express-async-errors')
 const config = require('./config')
 const blogsRouter = require('./ilmo')
 
+
 const mongoUrl = config.MONGO_URL
 console.log('connecting to', mongoUrl, typeof mongoUrl)
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -15,6 +16,7 @@ mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch((error) => {
     console.log('error connecting to MongoDB:', error.message)
   })
+
 
 
 
