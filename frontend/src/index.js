@@ -19,7 +19,7 @@ const store = createStore(
   applyMiddleware(thunk)
   )
 
-  console.log("state is now: ",store.getState())
+  //console.log("state is now: ",store.getState())
 
 ReactDOM.render(
   <Provider store={store}>

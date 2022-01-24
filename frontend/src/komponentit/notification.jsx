@@ -6,7 +6,7 @@ import { deleteNotification, notification } from './notificationReducer'
 const Notification = () => {
   const notification = useSelector(state => state.notifications)
   const dispatch = useDispatch()
-  console.log('notification',notification)
+  //console.log('notification',notification)
 
   if (notification.message === '') {
         return null
