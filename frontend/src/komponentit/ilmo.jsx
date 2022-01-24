@@ -63,7 +63,7 @@ const Ilmoittautuminen = () => {
         dispatch(initializeilmos())
       }, [dispatch])
 
-    const ilmos = useSelector(state => state.ilmo).length
+    const ilmos = useSelector(state => state.ilmo)
     console.log("ilmos",ilmos)
 
     const addIlmo = (event) => {

@@ -6,7 +6,7 @@ const Ilmo = require('./ilmoSchema')
 
 ilmoRouter.get('/', async (request, response) => { 
   const ilmos = await Ilmo.find({})
-  response.json(ilmos.map(b => b.toJSON()))
+  response.json(ilmos.map(b => b.toJSON()).length)
 })
 
 
