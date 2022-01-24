@@ -9,9 +9,6 @@ ilmoRouter.get('/', async (request, response) => {
   response.json(ilmos.map(b => b.toJSON()).length)
 })
 
-
-
-  
 ilmoRouter.post('/', async (request, response) => {
   
     const body = request.body
